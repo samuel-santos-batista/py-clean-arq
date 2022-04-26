@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  api: 
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    command: 'gunicorn -w 3 -b 0.0.0.0:3000 "server:create_app()" --reload'
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/app
+    
